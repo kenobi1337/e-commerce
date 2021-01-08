@@ -32,6 +32,22 @@
 	margin-top: 10px;
 	border-color: #a88734;
 	color: #111;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.product > button:hover {
+	background: #fec14b;
+	border: 3px solid;
+	margin-top: px;
+	border-color: green;
+	border-radius: 7px;
+}
+.product > button:active {
+	background: grey;
+	border: 3px solid;
+	margin-top: px;
+	border-color: green;
 }
 
 .product > img {
