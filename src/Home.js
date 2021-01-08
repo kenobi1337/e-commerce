@@ -13,19 +13,52 @@ function Home() {
 				/>
 
 				<div className='home__row'>
-					{/* product */}
-					{/* product */}
-					{/* product */}
+					<Product
+						id='124214'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
+					<Product
+						id='1242554'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
 				</div>
 				<div className='home__row'>
-					{/* product */}
-					{/* product */}
-					{/* product */}
+					<Product
+						id='9273546'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
+					<Product
+						id='2356235'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
+					<Product
+						id='238640'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
 				</div>
 				<div className='home__row'>
-					{/* product */}
-					{/* product */}
-					{/* product */}
+					<Product
+						id='8320235'
+						title='The lean startup'
+						price={29.99}
+						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
+						rating={3}
+					/>
 				</div>
 			</div>
 		</div>
