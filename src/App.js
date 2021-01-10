@@ -13,9 +13,13 @@ import { Elements } from '@stripe/react-stripe-js';
 import Orders from './Orders';
 import { db } from './firebase';
 
-const promise = loadStripe(
-	'pk_test_51I7ivDBohYXHsUUFpvViM3d3s7OvaExRXCl2luPbMmhBdMwDHFOSukZrzH3TK8gBfs49lIyLoUwtU8FIfy3brJnt00m71YEN3K'
-);
+// api key
+const testAPIKey =
+	'pk_test_51I7ivDBohYXHsUUFpvViM3d3s7OvaExRXCl2luPbMmhBdMwDHFOSukZrzH3TK8gBfs49lIyLoUwtU8FIfy3brJnt00m71YEN3K';
+const liveAPIKey =
+	'pk_live_51I7ivDBohYXHsUUFqdwvmu3uB5CFh164IAm2KHTHmS4a0MrbZL5m6kP6Cr2eVps13pCHSlYJbJnA1a0WNurrMAhh008DYd15I4';
+
+const promise = loadStripe(liveAPIKey);
 
 function App() {
 	const [{ basket }, dispatch] = useStateValue();

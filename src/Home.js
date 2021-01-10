@@ -16,7 +16,7 @@ function Home() {
 					<Product
 						id='124214'
 						title='The lean startup'
-						price={29.99}
+						price={1}
 						image='https://1.bp.blogspot.com/-T-d3JPMr-Uk/UPshLuidy6I/AAAAAAAAFbU/vOiHd0qgnC4/s1600/lean-startup_book-cover.jpeg'
 						rating={3}
 					/>

@@ -2,9 +2,13 @@ const functions = require('firebase-functions');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const stripe = require('stripe')(
-	'sk_test_51I7ivDBohYXHsUUFZNhr9AMhlX12fshMAF4rvShtgKn9nag8PeeBBeCJOWKqAnYZu8RManNrDzHniDmLan1jAKhP00vsGqYP86'
-);
+
+const secretTestAPI =
+	'sk_test_51I7ivDBohYXHsUUFZNhr9AMhlX12fshMAF4rvShtgKn9nag8PeeBBeCJOWKqAnYZu8RManNrDzHniDmLan1jAKhP00vsGqYP86';
+const secretLiveAPI =
+	'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';
+
+const stripe = require('stripe')(secretLiveAPI);
 
 // API
 
