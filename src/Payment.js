@@ -11,18 +11,56 @@ import {
 import CurrencyFormat from 'react-currency-format';
 import axios from './axios';
 import { db } from './firebase';
+import { Input } from '@material-ui/core';
+import {
+	FormControl,
+	InputLabel,
+	FormHelperText
+} from '@material-ui/core';
+
+class AddressItem extends React.Component {
+	render() {
+		return (
+			<div className="row form-group justify-content-start">
+				<label className="col-sm-4 col-form-label">
+					{this.props.label}
+				</label>
+				<div className="col-xl-8">
+					<input />
+					{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+				</div>
+			</div>
+		);
+	}
+}
 
 function Payment() {
 	const history = useHistory();
 	const [
-		{ basket, user, address },
+		{ basket, user },
 		dispatch
 	] = useStateValue();
 
 	const stripe = useStripe();
 	const elements = useElements();
 
-	const [addresses, setAddresses] = useState('');
+	const [addresses, setAddresses] = useState({
+		name: '',
+		street: '',
+		unit: '',
+		city: '',
+		state: '',
+		'postal code': '',
+		country: ''
+	});
 
 	const [error, setError] = useState(null);
 	const [disabled, setDisabled] = useState(true);
@@ -57,14 +95,6 @@ function Payment() {
 		getClientSecret();
 	}, [basket]);
 
-	const changeAddress = e => {
-		setAddresses(e.target.value);
-		dispatch({
-			type: 'ADD_ADDRESS',
-			address: addresses
-		});
-	};
-
 	const handleSubmit = async event => {
 		// do stripe pay
 		event.preventDefault();
@@ -88,7 +118,7 @@ function Payment() {
 					.set({
 						basket: basket,
 						amount: paymentIntent.amount,
-						buyerAddress: address,
+						buyerAddress: addresses,
 						created: paymentIntent.created
 					});
 
@@ -103,6 +133,8 @@ function Payment() {
 				history.replace('/orders');
 			});
 	};
+
+	console.log(addresses);
 
 	const handleChange = e => {
 		// listen for change in card element
@@ -128,8 +160,16 @@ function Payment() {
 					</div>
 					<div className="payment__address">
 						<p>{user?.email}</p>
-						<p>1936 Normandy Dr</p>
-						<p>Miami Beach FL 33141</p>
+						<p>
+							{addresses.street}{' '}
+							{addresses.unit}
+						</p>
+						<p>
+							{addresses.city}{' '}
+							{addresses.state}{' '}
+							{addresses['postal code']}
+						</p>
+						<p>{addresses.country}</p>
 					</div>
 				</div>
 				{/* review item */}
@@ -159,11 +199,236 @@ function Payment() {
 					<div className="payment__details">
 						{/* strip payment */}
 						<form onSubmit={handleSubmit}>
-							<input
-								value={addresses}
-								onChange={
-									changeAddress
-								}></input>
+							<div className="card">
+								<div className="card-body">
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											Name
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.name
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															name:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											Street
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.street
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															street:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											Unit, APT
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.name
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															unit:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											City
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.city
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															city:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											State
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.state
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															state:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											Postal Code
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses[
+														'postal code'
+													]
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															'postal code':
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+									<div className="row form-group justify-content-start">
+										<label className="col-sm-4 col-form-label">
+											Country
+										</label>
+										<div className="col-xl-8">
+											<input
+												value={
+													addresses.country
+												}
+												onChange={e =>
+													setAddresses(
+														{
+															...addresses,
+															country:
+																e
+																	.target
+																	.value
+														}
+													)
+												}
+											/>
+											{/*
+						type="text"
+						defaultValue={this.props.value}
+						onChange={this.props.onChange}
+						className="form-control"
+						placeholder={
+							this.props.placeholder
+						}
+					*/}
+										</div>
+									</div>
+								</div>
+							</div>
 							<CardElement
 								onChange={handleChange}
 							/>
