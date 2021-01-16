@@ -272,7 +272,7 @@ function Payment() {
 										<div className="col-xl-8">
 											<input
 												value={
-													addresses.name
+													addresses.unit
 												}
 												onChange={e =>
 													setAddresses(
