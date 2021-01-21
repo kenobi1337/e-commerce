@@ -8,22 +8,35 @@ import { useHistory } from 'react-router-dom';
 function Subtotal() {
 	const history = useHistory();
 	const [state, dispatch] = useStateValue();
-	let totalPrice = 0;
+	let mask = 0;
 	for (let i = 0; i < state.basket.length; i++) {
-		totalPrice += parseFloat(state.basket[i].price);
-		totalPrice = Math.round(totalPrice * 100) / 100;
+		if (state.basket[i].id === 'whole') {
+			mask += 10;
+		} else {
+			mask += 1;
+		}
+	}
+
+	let totalPrice = 0;
+	for (let i = 0; i < mask; i++) {
+		if (mask < 10) {
+			totalPrice += 16.99;
+		} else {
+			totalPrice += 10;
+		}
 	}
 
 	return (
-		<div className='subtotal'>
+		<div className="subtotal">
 			<CurrencyFormat
 				renderText={value => (
 					<>
 						<p>
-							Subtotal ( {state.basket.length} items ): <strong>{value}</strong>
+							Subtotal ( {mask} items ):{' '}
+							<strong>{value}</strong>
 						</p>
-						<small className='subtotal__gift'>
-							<input type='checkbox' />
+						<small className="subtotal__gift">
+							<input type="checkbox" />
 							This order contains a gift
 						</small>
 					</>
@@ -34,7 +47,12 @@ function Subtotal() {
 				thousandSeparator={true}
 				prefix={`$`}
 			/>
-			<button onClick={e => history.push('/payment')}>Proceed to checkout</button>
+			<button
+				onClick={e =>
+					history.push('/payment')
+				}>
+				Proceed to checkout
+			</button>
 		</div>
 	);
 }

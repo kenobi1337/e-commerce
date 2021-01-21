@@ -1,8 +1,9 @@
 .home__image {
 	width: 100%;
 	z-index: -1;
-	margin-bottom: -150px;
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+	height: 1000px;
+	margin-top: -100px;
+	margin-bottom: -600px;
 }
 
 .home {
@@ -18,4 +19,11 @@
 	z-index: 1;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+.sliderimg {
+	max-height: 200px;
+	width: 100%;
+	object-fit: contain;
+	margin-bottom: 15px;
+	/*color: rgba(59, 29, 9, 0.877)*/
 }

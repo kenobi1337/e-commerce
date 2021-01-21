@@ -71,11 +71,22 @@ function Payment() {
 	const [succeeded, setSucceeded] = useState(false);
 	const [processing, setProcessing] = useState('');
 
-	let totalPrice = 0;
+	let mask = 0;
 	for (let i = 0; i < basket.length; i++) {
-		totalPrice += parseFloat(basket[i].price);
-		totalPrice =
-			Math.round(totalPrice * 100) / 100;
+		if (basket[i].id === 'whole') {
+			mask += 10;
+		} else {
+			mask += 1;
+		}
+	}
+
+	let totalPrice = 0;
+	for (let i = 0; i < mask; i++) {
+		if (mask < 10) {
+			totalPrice += 16.99;
+		} else {
+			totalPrice += 10;
+		}
 	}
 
 	useEffect(() => {

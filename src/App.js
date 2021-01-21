@@ -17,6 +17,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import Orders from './Orders';
 import { db } from './firebase';
 
+
 // api key
 const testAPIKey =
 	'pk_test_51I7ivDBohYXHsUUFpvViM3d3s7OvaExRXCl2luPbMmhBdMwDHFOSukZrzH3TK8gBfs49lIyLoUwtU8FIfy3brJnt00m71YEN3K';
