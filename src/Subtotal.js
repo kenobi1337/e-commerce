@@ -20,9 +20,9 @@ function Subtotal() {
 	let totalPrice = 0;
 	for (let i = 0; i < mask; i++) {
 		if (mask < 10) {
-			totalPrice += 16.99;
+			totalPrice += 8.65;
 		} else {
-			totalPrice += 10;
+			totalPrice += 8;
 		}
 	}
 
@@ -48,9 +48,16 @@ function Subtotal() {
 				prefix={`$`}
 			/>
 			<button
-				onClick={e =>
-					history.push('/payment')
-				}>
+				onClick={e => {
+					history.push('/payment');
+					/*
+					if (state.user) {
+						history.push('/payment');
+					} else if (!state.user) {
+						history.push('/login');
+					}
+					*/
+				}}>
 				Proceed to checkout
 			</button>
 		</div>

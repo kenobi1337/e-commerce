@@ -17,6 +17,7 @@ import {
 	InputLabel,
 	FormHelperText
 } from '@material-ui/core';
+import Policy from './Policy';
 
 class AddressItem extends React.Component {
 	render() {
@@ -83,9 +84,9 @@ function Payment() {
 	let totalPrice = 0;
 	for (let i = 0; i < mask; i++) {
 		if (mask < 10) {
-			totalPrice += 16.99;
+			totalPrice += 8.65;
 		} else {
-			totalPrice += 10;
+			totalPrice += 8;
 		}
 	}
 
@@ -196,7 +197,7 @@ function Payment() {
 								id={item.id}
 								title={item.title}
 								image={item.image}
-								price={item.price}
+								price={item.salePrice}
 								rating={item.rating}
 							/>
 						))}
@@ -462,6 +463,7 @@ function Payment() {
 									}
 									prefix={`$`}
 								/>
+								<Policy />
 								<button
 									disabled={
 										processing ||

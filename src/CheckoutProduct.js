@@ -31,10 +31,10 @@ function CheckoutProduct({
 
 	let finalPrice = price;
 	if (mask >= 10) {
-		finalPrice = 10;
+		finalPrice = 8;
 	}
 	if (id === 'whole') {
-		finalPrice = 100;
+		finalPrice = 80;
 	}
 
 	return (

@@ -17,7 +17,10 @@ function Product({
 	price,
 	rating,
 	sub,
-	wholeSale
+	wholeSale,
+	salePrice,
+	hide,
+	show
 }) {
 	const data = [
 		{
@@ -32,8 +35,22 @@ function Product({
 			id: '3',
 			src: image3
 		},
-		{ id: '4', src: image4 },
-		{ id: '5', src: image5 }
+		{
+			id: '4',
+			src: image4
+		},
+		{
+			id: '5',
+			src: image5
+		},
+		{
+			id: '6',
+			src: image6
+		},
+		{
+			id: '7',
+			src: image8
+		}
 	];
 	const [{ basket }, dispatch] = useStateValue();
 
@@ -45,13 +62,17 @@ function Product({
 				title: title,
 				image: image,
 				price: price,
-				rating: rating
+				rating: rating,
+				salePrice: salePrice
 			}
 		});
 	};
 
 	return (
-		<div className="product">
+		<div
+			className={`product ${
+				hide ? 'hidden' : ''
+			} ${show ? 'show' : ''}`}>
 			<div className="product__info">
 				<h3>
 					{title}{' '}
@@ -87,7 +108,18 @@ function Product({
 				</p>
 				<p className="product__price">
 					<small>$</small>
-					<strong>{price}</strong>
+					<strong
+						style={{
+							color: 'red',
+							textDecoration:
+								'line-through'
+						}}>
+						{price}
+					</strong>{' '}
+					<small>$</small>
+					<strong style={{ color: 'green' }}>
+						{salePrice}
+					</strong>
 				</p>
 				<div className="product__rating">
 					{Array(rating)
@@ -97,8 +129,10 @@ function Product({
 						))}
 				</div>
 			</div>
-			<SwiftSlider data={data} height={215} />
-			<button onClick={addToBasket}>
+			<SwiftSlider data={data} height={325} />
+			<button
+				className="button"
+				onClick={addToBasket}>
 				Add to basket
 			</button>
 		</div>

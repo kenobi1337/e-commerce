@@ -28,6 +28,7 @@ function Header() {
 			<Link to="/">
 				<img
 					className="header__logo"
+					alt="logo"
 					src={Logo}
 				/>
 			</Link>
@@ -66,7 +67,7 @@ function Header() {
 						</span>
 					</div>
 				</Link>
-				<div className="header__option">
+				<div className="header__option prime">
 					<span className="header__optionLineOne">
 						Your
 					</span>

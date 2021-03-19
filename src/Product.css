@@ -7,7 +7,7 @@
 	padding: 20px;
 	width: 100%;
 	min-width: 100px;
-	max-height: 500px;
+
 	background-color: #fff;
 	z-index: 1;
 }
@@ -19,23 +19,22 @@
 .product__info {
 	width: 100%;
 	height: 200px;
-	margin-bottom: 15px;
+	margin-bottom: 25px;
 }
 
 .product__price {
 	margin-top: 5px;
 }
-
-.product > button {
+.button {
+	z-index: 10000;
 	background: #fec14b;
 	border: 1px solid;
-	margin-top: -100px;
+	margin-top: -50px;
 	border-color: #a88734;
 	color: #111;
 	cursor: pointer;
 	border-radius: 5px;
 }
-
 .product > button:hover {
 	background: #fec14b;
 	border: 3px solid;
@@ -45,13 +44,23 @@
 .product > button:active {
 	background: grey;
 	border: 3px solid;
-	margin-top: px;
 	border-color: green;
 }
 
-.product > img {
-	max-height: 300px;
-	width: 100%;
-	object-fit: contain;
-	margin-bottom: 15px;
+.show {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.hidden {
+		display: none;
+	}
+
+	.button {
+		margin-top: 50px;
+	}
+
+	.show {
+		display: inline;
+	}
 }

@@ -10,6 +10,7 @@ import mask6 from './image/mask6.jpg';
 import mask7 from './image/mask7.jpg';
 import mask8 from './image/mask8.jpg';
 import overlay from './image/overlay.jpg';
+import Countdown from './Countdown';
 
 function Home() {
 	return (
@@ -29,7 +30,9 @@ function Home() {
 						position: 'relative',
 						bottom: 50
 					}}>
-					GOOD LIFE ALL SHOP
+					GOOD LIFE ALL SHOP <br></br>
+					Valentine Special sale
+					<Countdown></Countdown>
 				</h1>
 				<div className="home__row">
 					<Product
@@ -37,6 +40,7 @@ function Home() {
 						title="cotton mask"
 						sub="2 per set"
 						price={16.99}
+						salePrice={8.65}
 						image={mask6}
 						image2={mask2}
 						image3={mask3}
@@ -53,6 +57,7 @@ function Home() {
 						sub="2 per set"
 						wholeSale="Whole Sale 10 set minimum"
 						price={100}
+						salePrice={80}
 						image={mask6}
 						image2={mask2}
 						image3={mask3}
@@ -62,6 +67,27 @@ function Home() {
 						image7={mask1}
 						image8={mask8}
 						rating={5}
+						hide={true}
+					/>
+				</div>
+				<div className="home__row">
+					<Product
+						id="whole"
+						title="cotton mask"
+						sub="2 per set"
+						wholeSale="Whole Sale 10 set minimum"
+						price={100}
+						salePrice={80}
+						image={mask6}
+						image2={mask2}
+						image3={mask3}
+						image4={mask4}
+						image5={mask5}
+						image6={mask7}
+						image7={mask1}
+						image8={mask8}
+						rating={5}
+						show={true}
 					/>
 				</div>
 			</div>
