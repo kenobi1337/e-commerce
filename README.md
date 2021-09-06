@@ -1,1 +1,1 @@
-### personal e-commerce website for our own businesses
+### personal e-commerce website
